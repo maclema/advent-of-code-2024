@@ -55,7 +55,7 @@ pub fn solve() -> Result<SolverResult, Error> {
     // Unzip the pairs into their own lists
     let (l1s, l2s): (Vec<&str>, Vec<&str>) = pairs.iter().map(|v| (v[0], v[1])).unzip();
 
-    // Parse the strings to i32 and sort the lists
+    // Parse the strings to ints and sort the lists
     let l1 = to_sorted_int_vec(l1s)?;
     let l2 = to_sorted_int_vec(l2s)?;
 
