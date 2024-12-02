@@ -32,9 +32,9 @@ fn count_frequency(list: &Vec<i64>) -> HashMap<i64, i64> {
     res
 }
 
-pub fn solve() -> Result<SolverResult, Error> {
+pub fn solve(path: &str) -> Result<SolverResult, Error> {
     // Load the input list file
-    let list = match fs::read_to_string("day1-list.txt") {
+    let list = match fs::read_to_string(path) {
         Ok(c) => c,
         Err(e) => return Err(Error::from(e)),
     };

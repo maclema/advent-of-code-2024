@@ -8,3 +8,7 @@ repository = "https://github.com/maclema/advent-of-code-2024"
 keywords = ["rust", "advent", "of", "code", "clippy"]
 readme = "README.md"
 categories = ["advent-of-code"]
+
+[dev-dependencies]
+clippy = "^0"
+cargo-llvm-cov = "^0"

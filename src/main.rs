@@ -16,12 +16,13 @@
 #![forbid(clippy::unwrap_used)]
 #![forbid(clippy::panic)]
 
-mod day1;
+mod day01;
+mod day01_test;
 mod error;
 
 fn main() {
     // Day 1
-    match day1::solve() {
+    match day01::solve("inputs/day1-list.txt") {
         Ok(result) => {
             println!("Day 1: Distance: {}", result.distance);
             println!("Day 1: Similarity: {}", result.similarity);
