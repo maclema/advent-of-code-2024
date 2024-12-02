@@ -53,25 +53,18 @@ pub fn solve() -> Result<SolverResult, Error> {
     }
 
     // Unzip the pairs into their own lists
-    let (l1, l2): (Vec<&str>, Vec<&str>) = pairs.iter().map(|v| (v[0], v[1])).unzip();
+    let (l1s, l2s): (Vec<&str>, Vec<&str>) = pairs.iter().map(|v| (v[0], v[1])).unzip();
 
     // Parse the strings to i32 and sort the lists
-    let list1 = to_sorted_int_vec(l1)?;
-    let list2 = to_sorted_int_vec(l2)?;
+    let l1 = to_sorted_int_vec(l1s)?;
+    let l2 = to_sorted_int_vec(l2s)?;
 
     // Calculate the distance
-    let distance: i64 = list1
-        .iter()
-        .zip(list2.iter())
-        .map(|(a, b)| (a - b).abs())
-        .sum();
+    let distance: i64 = l1.iter().zip(l2.iter()).map(|(a, b)| (a - b).abs()).sum();
 
     // Calculate the similarity
-    let counts = count_frequency(&list2);
-    let similarity = list1
-        .iter()
-        .map(|a| a * counts.get(a).unwrap_or(&0))
-        .sum::<i64>();
+    let counts = count_frequency(&l2);
+    let similarity = l1.iter().map(|a| a * counts.get(a).unwrap_or(&0)).sum();
 
     Ok(SolverResult {
         distance,
