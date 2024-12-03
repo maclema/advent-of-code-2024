@@ -20,6 +20,8 @@ mod day01;
 mod day01_test;
 mod day02;
 mod day02_test;
+mod day03;
+mod day03_test;
 mod error;
 
 fn main() {
@@ -44,6 +46,17 @@ fn main() {
             );
             assert_eq!(result.num_safe_reports, 502);
             assert_eq!(result.num_safe_reports_p2, 544);
+        }
+        Err(e) => println!("Day 1: Error: {e}"),
+    }
+
+    // Day 3
+    match day03::solve("inputs/day03.txt") {
+        Ok(result) => {
+            println!("Day 3: Part1: {}", result.part1);
+            println!("Day 3: Part2: {}", result.part2);
+            assert_eq!(result.part1, 156_388_521);
+            assert_eq!(result.part2, 75_920_122);
         }
         Err(e) => println!("Day 1: Error: {e}"),
     }
